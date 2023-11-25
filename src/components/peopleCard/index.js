@@ -11,8 +11,7 @@ export default function PeopleCard({ people, action }) {
   return (
     <>
       <Card sx={{ maxWidth: 500 }}>
-        <CardActionArea>
-            
+        <CardActionArea>   
           <Link to={`/people/${people.id}`}>
             <CardMedia
               component="img"
@@ -25,7 +24,7 @@ export default function PeopleCard({ people, action }) {
               alt="green iguana"
             />
           </Link>
-          <CardContent>
+          <CardContent sx={{ height: 60}}>
             <Typography gutterBottom variant="h5" component="div">
               {people.name}
             </Typography>

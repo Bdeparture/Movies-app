@@ -16,7 +16,7 @@ const PageMenuForPC = (props) => {
       
       const path = [
         {
-          Movies: ['/movies', '/movies/upcoming', '/movies/top-rated'],
+          Movies: ['/movies', '/movies/upcoming', '/movies/toprate'],
           TV: ['/tv'],
           People: ['/people'],
         },

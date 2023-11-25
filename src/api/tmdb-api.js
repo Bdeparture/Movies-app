@@ -64,6 +64,22 @@ export const getMoviesPage = (args) => {
     });
 };
 
+export const getToprateMovies = (args) => {
+  const [, pagePart] = args.queryKey;
+  const { page } = pagePart;
+  return fetch(
+    `${baseUrl}movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=${lang}&page=${page}`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const getPeoplePage = (args) => {
   const [, pagePart] = args.queryKey;
   const { page } = pagePart;

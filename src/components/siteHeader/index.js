@@ -38,9 +38,9 @@ const SiteHeader = ({ history }) => {
     <>
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-          <Typography >
-            <MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
+          <Typography sx={{ flexGrow: 0.1 }}>
           </Typography>
+          <MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
           {isMobile ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

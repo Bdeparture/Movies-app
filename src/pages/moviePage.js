@@ -14,7 +14,6 @@ const MoviePage = (props) => {
     setPage(value);
   };
 
-
   const { data, error, isLoading, isError } = useQuery([`popularMovies${page}`, { page: page }],
   getMoviesPage)
 
@@ -30,7 +29,6 @@ const MoviePage = (props) => {
   // Redundant, but necessary to avoid app crashing.
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
-  const addToFavorites = (movieId) => true
 
   return (
     <>

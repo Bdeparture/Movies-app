@@ -15,9 +15,11 @@ export const getMovies = () => {
     });
 };
 
-export const getUpcomingMovies = () => {
+export const getUpcomingMovies = (args) => {
+  const [, pagePart] = args.queryKey;
+  const { page } = pagePart;
   return fetch(
-    `${baseUrl}movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    `${baseUrl}movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=${lang}&page=${page}`
   ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
@@ -25,7 +27,7 @@ export const getUpcomingMovies = () => {
     return response.json();
   })
     .catch((error) => {
-      throw error
+      throw error;
     });
 };
 
@@ -65,7 +67,7 @@ export const getMoviesPage = (args) => {
 
 export const getGenres = async () => {
   return fetch(
-    `${baseUrl}`+"genre/movie/list?api_key=" +
+    `${baseUrl}genre/movie/list?api_key=` +
     process.env.REACT_APP_TMDB_KEY +
     "&language=en-US"
   ).then((response) => {

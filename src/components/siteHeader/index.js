@@ -3,15 +3,19 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import { useNavigate } from "react-router-dom";
-import { styled } from '@mui/material/styles';
+import PageMenu from '../pageMenu';
 import { useTheme } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MovieIcon from '@mui/icons-material/Movie';
+import Box from '@mui/material/Box';
+
+const pages = ['Movies', 'TV', 'People'];
+const pageRoutes = ['/movie', '/tv', '/people'];
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -21,85 +25,79 @@ const SiteHeader = ({ history }) => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  
-  const navigate = useNavigate();
 
-  const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Movie", path: "/movies" },
-    { label: "Favorites", path: "/movies/favorites" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-  ];
-
-  const handleMenuSelect = (pageURL) => {
-    navigate(pageURL, { replace: true });
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
   };
 
   return (
     <>
       <AppBar position="fixed" color="secondary">
         <Toolbar>
-          <Typography sx={{ flexGrow: 1 }}>
-            <MovieIcon/>
+          <Typography >
+            <MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
           </Typography>
-            {isMobile ? (
-              <>
+          {isMobile ? (
+            <>
+              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
-                  aria-label="menu"
+                  size="large"
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
+                  onClick={handleOpenMenu}
+                  color="inherit">
                   <MenuIcon />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
+                    vertical: 'bottom',
+                    horizontal: 'left',
                   }}
                   keepMounted
                   transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
+                    vertical: 'top',
+                    horizontal: 'left',
                   }}
                   open={open}
-                  onClose={() => setAnchorEl(null)}
-                >
-                  {menuOptions.map((opt) => (
-                    <MenuItem
-                      key={opt.label}
-                      onClick={() => handleMenuSelect(opt.path)}
-                    >
-                      {opt.label}
-                    </MenuItem>
-                  ))}
+                  onClose={handleCloseMenu}
+                  sx={{
+                    display: { xs: 'block', md: 'none' },
+                  }}>
+                  {pages.map((page, key) => {
+                    let route = pageRoutes[key];
+                    return (
+                      <MenuItem key={page} onClick={handleCloseMenu}>
+                        <Typography
+                          textAlign="center"
+                          component={Link}
+                          to={route}
+                          sx={{ textDecoration: 'none', color: 'black' }}>
+                          {page}
+                        </Typography>
+                      </MenuItem>
+                    );
+                  })}
                 </Menu>
-              </>
-            ) : (
-              <>
-                {menuOptions.map((opt) => (
-                  <Button
-                    key={opt.label}
-                    color="inherit"
-                    onClick={() => handleMenuSelect(opt.path)}
-                  >
-                    {opt.label}
-                  </Button>
-                ))}
-              </>
-            )}
+              </Box>
+              <MovieIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+            </>
+          ) : (
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              {pages.map((page) => (
+                <PageMenu key={page} page={page}></PageMenu>
+              ))}
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
       <Offset />
     </>
   );
 };
-
 export default SiteHeader;

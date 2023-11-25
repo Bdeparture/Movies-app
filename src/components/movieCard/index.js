@@ -53,7 +53,7 @@ export default function MovieCard({ movie, action }) {
             </Grid>
             <Grid item xs={6}>
               <Typography variant="h6" component="p">
-                <Rating name="read-only" value={movie.vote_average / 2} readOnly />
+                <Rating name="read-only" value={movie.vote_average / 2} precision={0.5} readOnly />
               </Typography>
             </Grid>
           </Grid>

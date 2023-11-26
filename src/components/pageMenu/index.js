@@ -9,7 +9,6 @@ const PageMenuForPC = (props) => {
     const list = [
         {
           Movies: ['Popular', 'Upcoming', 'Top Rated'],
-          TV: ['Popular'],
           People: ['Popular'],
         },
       ];
@@ -17,7 +16,6 @@ const PageMenuForPC = (props) => {
       const path = [
         {
           Movies: ['/movies', '/movies/upcoming', '/movies/toprate'],
-          TV: ['/tv'],
           People: ['/people'],
         },
       ];

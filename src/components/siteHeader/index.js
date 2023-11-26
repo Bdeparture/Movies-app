@@ -13,9 +13,11 @@ import { Link } from 'react-router-dom';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MovieIcon from '@mui/icons-material/Movie';
 import Box from '@mui/material/Box';
+import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
-const pages = ['Movies', 'TV', 'People'];
-const pageRoutes = ['/movie', '/tv', '/people'];
+const pages = ['Movies', 'People'];
+const pageRoutes = ['/movie', '/people'];
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -34,13 +36,18 @@ const SiteHeader = ({ history }) => {
     setAnchorEl(null);
   };
 
+  
+  const navigate = useNavigate();
+  const handleMenuSelect = (pageURL) => {
+    navigate(pageURL, { replace: true });
+  };
+
   return (
     <>
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography sx={{ flexGrow: 0.1 }}>
-          </Typography>
-          <MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
+          </Typography><MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
           {isMobile ? (
             <>
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,6 +96,13 @@ const SiteHeader = ({ history }) => {
             </>
           ) : (
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Button
+                    key={"Home"}
+                    color="inherit"
+                    onClick={() => handleMenuSelect("/")}
+                  >
+                    Home
+                  </Button>
               {pages.map((page) => (
                 <PageMenu key={page} page={page}></PageMenu>
               ))}

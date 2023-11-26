@@ -55,7 +55,7 @@ const Account = () => {
           </ListItemIcon>
           My Favorite
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to="/login">
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

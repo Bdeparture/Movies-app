@@ -15,6 +15,9 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import People from './pages/peoplePage'
 import ToprateMoviesPage from './pages/toprateMoviesPage'
 import PeopleDetailsPage from "./pages/peopleDetailsPage";
+import LoginPage from './pages/loginPage'
+import SignupPage from './pages/signupPage'
+import { AuthProvider } from './contexts/authContext'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -42,6 +45,8 @@ const App = () => {
           <Route path="/movies" element={<Movie />} />
           <Route path="/people" element={<People />} />
           <Route path="/people/:id" element={<PeopleDetailsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>

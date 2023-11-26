@@ -51,7 +51,7 @@ const HomePage = () => {
         Discover
       </Typography>
 
-      <div className="section" style={{ marginBottom: '20px' }}>
+      <div className="section1" style={{ marginBottom: '20px' }}>
         <div className="sectionHeader" style={styles.sectionHeader}>
           <h2>Popular Movies
           <Button
@@ -73,7 +73,7 @@ const HomePage = () => {
         </Grid>
       </div>
 
-      <div className="section" style={{ marginBottom: '20px' }}>
+      <div className="section2" style={{ marginBottom: '20px' }}>
         <div className="sectionHeader" style={styles.sectionHeader}>
           <h2>Top Rated Movies
           <Button
@@ -95,7 +95,7 @@ const HomePage = () => {
         </Grid>
       </div>
 
-      <div className="section" style={{ marginBottom: '20px' }}>
+      <div className="section3" style={{ marginBottom: '20px' }}>
         <div className="sectionHeader" style={styles.sectionHeader}>
           <h2>Upcoming Movies
           <Button

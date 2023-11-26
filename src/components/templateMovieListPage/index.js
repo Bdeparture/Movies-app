@@ -4,7 +4,7 @@ import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
 
-function MovieListPageTemplate({ movies, title }) {
+function MovieListPageTemplate({ movies, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [sortFilter, setSortFilter] = useState('0');
@@ -29,7 +29,7 @@ function MovieListPageTemplate({ movies, title }) {
   });
 else if (sortFilter === '2')
   displayedMovies.sort((a, b) => {
-    if (a.release_date < b.release_date || a.first_air_date < b.first_air_date) return 1;
+    if (a.release_date <= b.release_date || a.first_air_date <= b.first_air_date) return 1;
     else return -1;
   });
 
@@ -53,7 +53,7 @@ else if (sortFilter === '2')
             sortFilter={sortFilter}
           />
         </Grid> }
-        <MovieList movies={displayedMovies}></MovieList>
+        <MovieList action={action} movies={displayedMovies}></MovieList>
       </Grid>
     </Grid>
   );

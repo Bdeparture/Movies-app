@@ -4,8 +4,8 @@ import PeopleList from "../peopleList";
 import Grid from "@mui/material/Grid";
 
 function PeopleListPageTemplate({ people,title, action }) {
-    const [nameFilter, setNameFilter] = useState("");
-    const [genreFilter, setGenreFilter] = useState("0");
+    const [nameFilter] = useState("");
+    const [genreFilter] = useState("0");
     const genreId = Number(genreFilter);
 
     let displayedPeople = people

@@ -66,7 +66,7 @@ const Signup = () => {
           <Button variant="contained" type="submit" disabled={loading}>Sign up</Button>
         </form>
         <div>
-          Already have an account? <Link to="/">Log in</Link>
+          Already have an account? <Link to="/login">Log in</Link>
         </div>
       </Box>
     </Card>

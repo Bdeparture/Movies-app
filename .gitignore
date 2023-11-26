@@ -43,7 +43,10 @@ node_modules/
 jspm_packages/
 
 # Generated files
-build/
+/build
+
+# Ignore .firebase folder
+.firebase
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

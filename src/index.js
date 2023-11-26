@@ -35,6 +35,7 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
+        <AuthProvider>
         <Routes>
         <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
           <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
+       </AuthProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

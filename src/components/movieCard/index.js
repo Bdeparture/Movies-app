@@ -38,7 +38,7 @@ export default function MovieCard({ movie, action }) {
         <CardHeader sx={{ height: 60, alignItems: "start", lineHeight: '1.2' }}
           title={
             <Typography variant="h6" component="p" sx={{ fontWeight: 'bold' }}>
-              {movie.title}{" "}
+              {movie.title || movie.name}{" "}
             </Typography>
           }
         />
@@ -48,7 +48,7 @@ export default function MovieCard({ movie, action }) {
             <Grid item xs={6}>
               <Typography variant="h6" component="p">
                 <CalendarIcon fontSize="small" />
-                {movie.release_date}
+                {movie.release_date || movie.first_air_date}
               </Typography>
             </Grid>
             <Grid item xs={6}>

@@ -33,7 +33,7 @@ const MoviePage = (props) => {
   return (
     <>
       <PageTemplate
-        title="Discover Movies"
+        title="Popular Movies"
         movies={movies}
         action={(movie) => {
           return <AddToFavoritesIcon movie={movie} />

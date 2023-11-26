@@ -62,6 +62,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-storybook": "^0.6.15",
     "prop-types": "^15.8.1",
+    "serve": "^14.2.1",
     "storybook": "^7.5.3",
     "webpack": "^5.89.0"
   }

@@ -15,6 +15,7 @@ import MovieIcon from '@mui/icons-material/Movie';
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import Account from "../account";
 
 const pages = ['Movies', 'People'];
 const pageRoutes = ['/movie', '/people'];
@@ -44,7 +45,7 @@ const SiteHeader = ({ history }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" style={{backgroundColor:'black'}}>
         <Toolbar>
           <Typography sx={{ flexGrow: 0.1 }}>
           </Typography><MovieIcon sx={{ display: { xs: 'none', md: 'flex' } }} />
@@ -108,6 +109,7 @@ const SiteHeader = ({ history }) => {
               ))}
             </Box>
           )}
+           <Typography sx={{ flexGrow: 0.1 }}> <Account /></Typography>
         </Toolbar>
       </AppBar>
       <Offset />

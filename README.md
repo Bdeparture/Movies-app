@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Movie—app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sisi Chen
 
-## Available Scripts
+GitHub：[Bdeparture/Movies-app (github.com)](https://github.com/Bdeparture/Movies-app/)
 
-In the project directory, you can run:
+YouTube：[Movies-app show - YouTube](https://www.youtube.com/watch?v=9dKW28jqviY)
 
-### `npm start`
+Website：[React App (movies-app-bdeparture.web.app)](https://movies-app-bdeparture.web.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A website for everyone who loves movies to find their favorite.
 
-### `npm test`
+### Feature
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- New page(/people;/toprate;/upcoming)
+- A new homepage
+- Pagination
+- Sort
+- Headersite optimization
+- Caching support(useQueries)
+- UI optimaization<
+- Account setting(log in/log out/sign up)
+- Auto-deployment
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Setup Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Enter `npm install` to install all the dependencies demanded. If you already have a react-app, please enter the commands as follows and install these packages:
 
-### `npm run eject`
+1. Material UI - `npm install @mui/material @emotion/react @emotion/styled`
+2. React Router - `npm install react-router-dom`
+3. React Query - `npm install react-query`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+After installing all packages, use npm start to run this project.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Open [http://localhost:3000](http://localhost:3000/) to view it in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Notice: API Key is necessary to run successfully. A file `.env` in root folder should be created by custom. The content in the file is like:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`REACT_APP_TMDB_KEY = <<Your_TMDB_API>>`
+`FAST_REFRESH = false`
 
-## Learn More
+## API Endpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In this project, [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction) is used to get necessary data. Here is the list of API endpoints that used in this project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Movies
+  - Movie details - /movie/{movie_id}
+  - Movie credits - /movie/{movie_id}/credits
+  - Movie review - /movie/{movie_id}/review
+  - Movie image - /movie/{movie_id}/images
+  - Popular movie list - /movie/popular
+  - Top rated movie list - /movie/top_rated
+  - Upcoming movie list - /movie/upcoming
+- People
+  - People details - /person/{person_id}
+  - Popular people list - /person/popular
+  - People movie credits - /person/{person_id}/movie_credits
+- Genres
+  - Movie genres - /genre/movie/list
 
-### Code Splitting
+## Routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- / - display the home page
+- /movies - display popular movies
+- /movies/:id - display a particular movie
+- /movies/upcoming - display upcoming movies
+- /movies/toprate - display top-rated movies
+- /movies/favorites - display the favorite movies of the user
+- /people - display all popular people
+- /people/:id - display a particular person
+- /login - display the log in 
+- /signup - display the sign up
 
-### Analyzing the Bundle Size
+## Independent Learning
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Firebase Authentication
 
-### Making a Progressive Web App
+Firebase Authentication was integrated into the project to provide a secure and user-friendly authentication system. Key aspects of my learning include:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **User Sign-up and Login:** Implemented the functionality to allow users to sign up for an account using a valid email and password. Users can also log in to their accounts securely.
 
-### Advanced Configuration
+### Firebase Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Firebase was utilized for the deployment of the Movies App, allowing for easy and efficient hosting. Here are the main points of my learning:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Firebase Hosting:** Explored the process of deploying a React Single Page Application (SPA) to Firebase Hosting. This involved configuring the Firebase project settings and deploying the app to a live server.
